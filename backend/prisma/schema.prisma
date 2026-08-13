@@ -1,0 +1,103 @@
+// Prisma schema for IndoKerja.id Job Application Platform
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  JOB_SEEKER
+  COMPANY
+}
+
+enum JobType {
+  FULL_TIME
+  PART_TIME
+  CONTRACT
+  INTERNSHIP
+  FREELANCE
+}
+
+enum ApplicationStatus {
+  APPLIED
+  REVIEWING
+  SHORTLISTED
+  REJECTED
+  ACCEPTED
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  password     String
+  name         String
+  role         Role
+  // Only relevant when role = COMPANY, kept simple (no separate profile table)
+  companyName  String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // Relations
+  jobsPosted   Job[]         @relation("CompanyJobs")
+  applications Application[] @relation("JobSeekerApplications")
+
+  @@map("users")
+}
+
+model Job {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  location    String
+  salary      String
+  jobType     JobType
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  companyId   String
+  company     User     @relation("CompanyJobs", fields: [companyId], references: [id], onDelete: Cascade)
+
+  applications Application[]
+
+  @@index([companyId])
+  @@map("jobs")
+}
+
+model Application {
+  id          String            @id @default(uuid())
+  status      ApplicationStatus @default(APPLIED)
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  jobId       String
+  job         Job               @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  jobSeekerId String
+  jobSeeker   User              @relation("JobSeekerApplications", fields: [jobSeekerId], references: [id], onDelete: Cascade)
+
+  history     ApplicationHistory[]
+
+  // A job seeker cannot apply to the same job more than once
+  @@unique([jobId, jobSeekerId])
+  @@index([jobId])
+  @@index([jobSeekerId])
+  @@map("applications")
+}
+
+model ApplicationHistory {
+  id            String            @id @default(uuid())
+  status        ApplicationStatus
+  note          String?
+  changedAt     DateTime          @default(now())
+
+  applicationId String
+  application   Application       @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@index([applicationId])
+  @@map("application_history")
+}
