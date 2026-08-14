@@ -1,6 +1,11 @@
 import axios from 'axios';
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000/api';
+// In development (separate frontend/backend servers) VITE_API_URL should
+// point to the backend, e.g. http://localhost:4000/api.
+// In production (single-service deployment, backend also serves the built
+// frontend) it defaults to a relative '/api' path so it works on whatever
+// domain the app is deployed to, without hardcoding a URL at build time.
+const API_URL = import.meta.env.VITE_API_URL || '/api';
 
 export const apiClient = axios.create({
   baseURL: API_URL,
