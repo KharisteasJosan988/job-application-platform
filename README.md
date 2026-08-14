@@ -1,9 +1,9 @@
-# IndoKerja.id — Job Application Platform (Simulasi)
+# Job Application Platform
 
 Aplikasi simulasi platform pencarian kerja seperti IndoKerja.id. Terdiri dari dua bagian:
 
-- **backend/** — REST API (Node.js + TypeScript + Express + Prisma + PostgreSQL)
-- **frontend/** — Single Page App (React.js + TypeScript + Vite)
+- **backend/** - REST API (Node.js + TypeScript + Express + Prisma + PostgreSQL)
+- **frontend/** - Single Page App (React.js + TypeScript + Vite)
 
 Dokumentasi API lengkap ada di [`API_DOCS.md`](./API_DOCS.md).
 
@@ -186,3 +186,6 @@ Untuk menjaga scope tetap sederhana dan fokus pada kualitas inti:
   tanpa tabel profil terpisah.
 - Tidak ada fitur reset password / verifikasi email.
 - Tidak ada pagination (cukup untuk skala data simulasi/demo).
+
+## Assessment Context
+This project was developed as a technical assessment for a Full Stack Developer position. The implementation follows the specified requirements while maintaining a clean and reusable architecture suitable for further development.
