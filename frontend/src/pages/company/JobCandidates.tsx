@@ -107,8 +107,8 @@ export default function JobCandidates() {
 
       {job && !job.isActive && (
         <div className="alert alert-error" style={{ marginBottom: 16 }}>
-          Lowongan ini sedang nonaktif — Job Seeker tidak bisa melihat atau
-          melamar lowongan ini.
+          Lowongan ini sedang nonaktif (Job Seeker tidak bisa melihat atau
+          melamar lowongan ini).
         </div>
       )}
 
