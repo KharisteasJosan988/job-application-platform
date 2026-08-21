@@ -1,32 +1,36 @@
-import { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { apiClient, getErrorMessage } from '../../api/client';
-import StatusBadge from '../../components/StatusBadge';
-import { ApiResponse, Application, ApplicationStatus } from '../../types';
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { apiClient, getErrorMessage } from "../../api/client";
+import StatusBadge from "../../components/StatusBadge";
+import { ApiResponse, Application, ApplicationStatus, Job } from "../../types";
 
 const STATUS_OPTIONS: ApplicationStatus[] = [
-  'APPLIED',
-  'REVIEWING',
-  'SHORTLISTED',
-  'REJECTED',
-  'ACCEPTED',
+  "APPLIED",
+  "REVIEWING",
+  "SHORTLISTED",
+  "REJECTED",
+  "ACCEPTED",
 ];
 
 export default function JobCandidates() {
   const { jobId } = useParams<{ jobId: string }>();
   const navigate = useNavigate();
+  const [job, setJob] = useState<Job | null>(null);
   const [applications, setApplications] = useState<Application[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
   const [updatingId, setUpdatingId] = useState<string | null>(null);
+  const [togglingJob, setTogglingJob] = useState(false);
 
   async function fetchCandidates() {
     setLoading(true);
     try {
-      const res = await apiClient.get<ApiResponse<Application[]>>(
-        `/applications/job/${jobId}`,
-      );
-      setApplications(res.data.data);
+      const [jobRes, appsRes] = await Promise.all([
+        apiClient.get<ApiResponse<Job>>(`/jobs/${jobId}`),
+        apiClient.get<ApiResponse<Application[]>>(`/applications/job/${jobId}`),
+      ]);
+      setJob(jobRes.data.data);
+      setApplications(appsRes.data.data);
     } catch (err) {
       setError(getErrorMessage(err));
     } finally {
@@ -39,11 +43,16 @@ export default function JobCandidates() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [jobId]);
 
-  async function handleStatusChange(applicationId: string, status: ApplicationStatus) {
+  async function handleStatusChange(
+    applicationId: string,
+    status: ApplicationStatus,
+  ) {
     setUpdatingId(applicationId);
-    setError('');
+    setError("");
     try {
-      await apiClient.patch(`/applications/${applicationId}/status`, { status });
+      await apiClient.patch(`/applications/${applicationId}/status`, {
+        status,
+      });
       setApplications((apps) =>
         apps.map((a) => (a.id === applicationId ? { ...a, status } : a)),
       );
@@ -54,13 +63,54 @@ export default function JobCandidates() {
     }
   }
 
+  async function handleToggleActive() {
+    if (!job) return;
+    setTogglingJob(true);
+    setError("");
+    try {
+      const res = await apiClient.patch<ApiResponse<Job>>(`/jobs/${job.id}`, {
+        isActive: !job.isActive,
+      });
+      setJob(res.data.data);
+    } catch (err) {
+      setError(getErrorMessage(err));
+    } finally {
+      setTogglingJob(false);
+    }
+  }
+
   return (
     <div className="container">
-      <button className="btn-link" onClick={() => navigate('/')}>
+      <button className="btn-link" onClick={() => navigate("/")}>
         ← Kembali ke Lowongan Saya
       </button>
 
-      <h1>Kandidat Pelamar</h1>
+      <div className="page-header">
+        <div>
+          <h1>Kandidat Pelamar</h1>
+          {job && <p className="muted">{job.title}</p>}
+        </div>
+        {job && (
+          <button
+            className={job.isActive ? "btn btn-outline" : "btn btn-primary"}
+            onClick={handleToggleActive}
+            disabled={togglingJob}
+          >
+            {togglingJob
+              ? "Memproses..."
+              : job.isActive
+                ? "Nonaktifkan Lowongan"
+                : "Aktifkan Kembali"}
+          </button>
+        )}
+      </div>
+
+      {job && !job.isActive && (
+        <div className="alert alert-error" style={{ marginBottom: 16 }}>
+          Lowongan ini sedang nonaktif — Job Seeker tidak bisa melihat atau
+          melamar lowongan ini.
+        </div>
+      )}
 
       {error && <div className="alert alert-error">{error}</div>}
       {loading && <p className="muted">Memuat...</p>}
@@ -75,7 +125,7 @@ export default function JobCandidates() {
               <strong>{app.jobSeeker?.name}</strong>
               <span className="muted small">{app.jobSeeker?.email}</span>
               <span className="muted small">
-                Melamar {new Date(app.createdAt).toLocaleDateString('id-ID')}
+                Melamar {new Date(app.createdAt).toLocaleDateString("id-ID")}
               </span>
             </div>
 
@@ -85,7 +135,10 @@ export default function JobCandidates() {
                 value={app.status}
                 disabled={updatingId === app.id}
                 onChange={(e) =>
-                  handleStatusChange(app.id, e.target.value as ApplicationStatus)
+                  handleStatusChange(
+                    app.id,
+                    e.target.value as ApplicationStatus,
+                  )
                 }
               >
                 {STATUS_OPTIONS.map((s) => (
