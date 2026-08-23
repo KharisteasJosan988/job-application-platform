@@ -187,4 +187,4 @@ Untuk menjaga scope tetap sederhana dan fokus pada kualitas inti:
 - Tidak ada pagination (cukup untuk skala data simulasi/demo).
 
 ## Tentang Proyek Ini
-Proyek ini dibangun sebagai showcase kemampuan full-stack development, mencakup autentikasi & otorisasi berbasis role, business logic dengan validasi berlapis, keamanan API (proteksi IDOR, SQL Injection, dsb), desain skema database relasional, dan REST API yang terdokumentasi rapi — dengan arsitektur yang bersih dan mudah dikembangkan lebih lanjut.
+Proyek ini dibangun sebagai showcase kemampuan full-stack development, mencakup autentikasi & otorisasi berbasis role, business logic dengan validasi berlapis, keamanan API (proteksi IDOR, SQL Injection, dsb), desain skema database relasional, dan REST API yang terdokumentasi rapi dengan arsitektur yang bersih dan mudah dikembangkan lebih lanjut.
