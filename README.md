@@ -1,6 +1,6 @@
 # Job Application Platform
 
-Aplikasi simulasi platform pencarian kerja seperti IndoKerja.id. Terdiri dari dua bagian:
+Aplikasi simulasi platform pencarian kerja yang menghubungkan Job Seeker dengan Company. Terdiri dari dua bagian:
 
 - **backend/** - REST API (Node.js + TypeScript + Express + Prisma + PostgreSQL)
 - **frontend/** - Single Page App (React.js + TypeScript + Vite)
@@ -178,14 +178,13 @@ npm run preview   # preview hasil build
   (`@@unique([jobId, jobSeekerId])`) dan pengecekan eksplisit di controller
   agar pesan error lebih ramah pengguna.
 
-## 8. Batasan / Simplifikasi (sesuai catatan assessment)
+## 8. Batasan / Simplifikasi 
 
 Untuk menjaga scope tetap sederhana dan fokus pada kualitas inti:
 - Tidak ada fitur upload CV/file (bisa ditambahkan sebagai pengembangan lanjutan).
-- Profil Company disederhanakan menjadi field `companyName` pada tabel `User`,
-  tanpa tabel profil terpisah.
+- Profil Company disederhanakan menjadi field `companyName` pada tabel `User`, tanpa tabel profil terpisah.
 - Tidak ada fitur reset password / verifikasi email.
 - Tidak ada pagination (cukup untuk skala data simulasi/demo).
 
-## Assessment Context
-This project was developed as a technical assessment for a Full Stack Developer position. The implementation follows the specified requirements while maintaining a clean and reusable architecture suitable for further development.
+## Tentang Proyek Ini
+Proyek ini dibangun sebagai showcase kemampuan full-stack development, mencakup autentikasi & otorisasi berbasis role, business logic dengan validasi berlapis, keamanan API (proteksi IDOR, SQL Injection, dsb), desain skema database relasional, dan REST API yang terdokumentasi rapi — dengan arsitektur yang bersih dan mudah dikembangkan lebih lanjut.
