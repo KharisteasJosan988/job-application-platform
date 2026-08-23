@@ -1,0 +1,2949 @@
+{
+    "info": {
+        "_postman_id": "64796ec8-842d-4a81-9f29-95ca93410263",
+        "name": "Testing Job App Form",
+        "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n\u2022 Group related requests\n\u2022 Test your API in real-world scenarios\n\u2022 Document and share your requests\n\nUpdate the name and overview whenever you\u2019re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "57377981",
+        "_collection_link": "https://go.postman.co/collection/57377981-64796ec8-842d-4a81-9f29-95ca93410263?source=collection_link"
+    },
+    "item": [
+        {
+            "name": "Request Login JobSeeker",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});"
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                    }
+                }
+            ],
+            "request": {
+                "auth": {
+                    "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n  \"email\": \"jobseeker@example.com\",\r\n  \"password\": \"password123\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "https://job-application-platform-olive.vercel.app/api/auth/login",
+                    "protocol": "https",
+                    "host": [
+                        "job-application-platform-olive",
+                        "vercel",
+                        "app"
+                    ],
+                    "path": [
+                        "api",
+                        "auth",
+                        "login"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "TC-API-005",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            ""
+                        ],
+                        "type": "text/javascript",
+                        "packages": {},
+                        "requests": {}
+                    }
+                }
+            ],
+            "request": {
+                "auth": {
+                    "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"email\": \"' OR '1'='1\",\r\n    \"password\": \"apapun123\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "https://job-application-platform-olive.vercel.app/api/auth/login",
+                    "protocol": "https",
+                    "host": [
+                        "job-application-platform-olive",
+                        "vercel",
+                        "app"
+                    ],
+                    "path": [
+                        "api",
+                        "auth",
+                        "login"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "name": "TC-API-005",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"email\": \"' OR '1'='1\",\r\n    \"password\": \"apapun123\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "https://job-application-platform-olive.vercel.app/api/auth/login",
+                            "protocol": "https",
+                            "host": [
+                                "job-application-platform-olive",
+                                "vercel",
+                                "app"
+                            ],
+                            "path": [
+                                "api",
+                                "auth",
+                                "login"
+                            ]
+                        }
+                    },
+                    "status": "Bad Request",
+                    "code": 400,
+                    "_postman_previewlanguage": null,
+                    "header": [
+                        {
+                            "key": ":status",
+                            "value": 400
+                        },
+                        {
+                            "key": "access-control-allow-credentials",
+                            "value": "true"
+                        },
+                        {
+                            "key": "cache-control",
+                            "value": "public, max-age=0, must-revalidate"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "date",
+                            "value": "Sat, 22 Aug 2026 09:32:09 GMT"
+                        },
+                        {
+                            "key": "etag",
+                            "value": "W/\"6d-qnR0QrZrgAfW/exzdlsYU1SgFa8\""
+                        },
+                        {
+                            "key": "server",
+                            "value": "Vercel"
+                        },
+                        {
+                            "key": "strict-transport-security",
+                            "value": "max-age=63072000; includeSubDomains; preload"
+                        },
+                        {
+                            "key": "vary",
+                            "value": "Origin"
+                        },
+                        {
+                            "key": "x-powered-by",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "x-vercel-cache",
+                            "value": "MISS"
+                        },
+                        {
+                            "key": "x-vercel-id",
+                            "value": "sin1::iad1::7fn92-1787391128431-07e6d30f8766"
+                        },
+                        {
+                            "key": "content-length",
+                            "value": "109"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"success\": false,\n    \"message\": \"Validation error\",\n    \"errors\": [\n        {\n            \"path\": \"body.email\",\n            \"message\": \"Email tidak valid\"\n        }\n    ]\n}"
+                }
+            ]
+        },
+        {
+            "name": "Request Login Company",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n  \"email\": \"hr@techcorp.id\",\r\n  \"password\": \"password123\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "https://job-application-platform-olive.vercel.app/api/auth/login",
+                    "protocol": "https",
+                    "host": [
+                        "job-application-platform-olive",
+                        "vercel",
+                        "app"
+                    ],
+                    "path": [
+                        "api",
+                        "auth",
+                        "login"
+                    ]
+                }
+            },
+            "response": [],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "",
+                            "pm.test(\"Response contains token\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.data).to.have.property(\"token\");",
+                            "    pm.expect(json.data.token).to.be.a(\"string\").and.not.empty;",
+                            "});",
+                            "",
+                            "pm.test(\"Response does not expose password field\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.data.user).to.not.have.property(\"password\");",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Request Login Company B",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n  \"email\": \"company@mail.com\",\r\n  \"password\": \"company@mail.com\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "https://job-application-platform-olive.vercel.app/api/auth/login",
+                    "protocol": "https",
+                    "host": [
+                        "job-application-platform-olive",
+                        "vercel",
+                        "app"
+                    ],
+                    "path": [
+                        "api",
+                        "auth",
+                        "login"
+                    ]
+                }
+            },
+            "response": [],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "",
+                            "pm.test(\"Response contains token\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.data).to.have.property(\"token\");",
+                            "    pm.expect(json.data.token).to.be.a(\"string\").and.not.empty;",
+                            "});",
+                            "",
+                            "pm.test(\"Response does not expose password field\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.data.user).to.not.have.property(\"password\");",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Request Job Company B",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{auth_secret_0qes}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://job-application-platform-olive.vercel.app/api/jobs",
+                    "protocol": "https",
+                    "host": [
+                        "job-application-platform-olive",
+                        "vercel",
+                        "app"
+                    ],
+                    "path": [
+                        "api",
+                        "jobs"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "name": "Request Job Company B",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "https://job-application-platform-olive.vercel.app/api/jobs",
+                            "protocol": "https",
+                            "host": [
+                                "job-application-platform-olive",
+                                "vercel",
+                                "app"
+                            ],
+                            "path": [
+                                "api",
+                                "jobs"
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": null,
+                    "header": [
+                        {
+                            "key": ":status",
+                            "value": 200
+                        },
+                        {
+                            "key": "access-control-allow-credentials",
+                            "value": "true"
+                        },
+                        {
+                            "key": "cache-control",
+                            "value": "public, max-age=0, must-revalidate"
+                        },
+                        {
+                            "key": "content-encoding",
+                            "value": "br"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "date",
+                            "value": "Fri, 21 Aug 2026 07:26:35 GMT"
+                        },
+                        {
+                            "key": "etag",
+                            "value": "W/\"b12-0DEhPFg7HwZGFtl4LiZWzvcf52A\""
+                        },
+                        {
+                            "key": "server",
+                            "value": "Vercel"
+                        },
+                        {
+                            "key": "strict-transport-security",
+                            "value": "max-age=63072000; includeSubDomains; preload"
+                        },
+                        {
+                            "key": "vary",
+                            "value": "Origin"
+                        },
+                        {
+                            "key": "x-powered-by",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "x-vercel-cache",
+                            "value": "BYPASS"
+                        },
+                        {
+                            "key": "x-vercel-id",
+                            "value": "sin1::iad1::82v4s-1787297194308-3416f8f9ee27"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": \"4ea9133a-3ac2-40c3-a855-0ceb3a2aa489\",\n            \"title\": \"Backend Developer (Laravel)\",\n            \"description\": \"asdasdasdasdasd\",\n            \"location\": \"Yogyakarta\",\n            \"salary\": \"Rp 3.000.000\",\n            \"jobType\": \"FULL_TIME\",\n            \"isActive\": true,\n            \"createdAt\": \"2026-08-21T07:18:02.897Z\",\n            \"updatedAt\": \"2026-08-21T07:18:02.897Z\",\n            \"companyId\": \"a079cbe5-8e4a-4b27-95c5-c0e7696befe2\",\n            \"company\": {\n                \"id\": \"a079cbe5-8e4a-4b27-95c5-c0e7696befe2\",\n                \"name\": \"kompanion\",\n                \"companyName\": \"kompanion\"\n            }\n        },\n        {\n            \"id\": \"de8304d0-1b46-4808-9fde-05d4e8e4b191\",\n            \"title\": \"asdasda\",\n            \"description\": \"asdasdadsasa\",\n            \"location\": \"asdasda\",\n            \"salary\": \"asdasdads\",\n            \"jobType\": \"FULL_TIME\",\n            \"isActive\": true,\n            \"createdAt\": \"2026-08-21T06:58:54.808Z\",\n            \"updatedAt\": \"2026-08-21T06:58:54.808Z\",\n            \"companyId\": \"1e18b803-d338-4376-8f49-e1c534cdffb9\",\n            \"company\": {\n                \"id\": \"1e18b803-d338-4376-8f49-e1c534cdffb9\",\n                \"name\": \"HR TechCorp\",\n                \"companyName\": \"TechCorp Indonesia\"\n            }\n        },\n        {\n            \"id\": \"f7555ff5-95a1-4b48-882e-267bbbfba3ca\",\n            \"title\": \"IT Support\",\n            \"description\": \"Troubleshooting hardware maupun software yang diperlukan.\",\n            \"location\": \"Jakarta\",\n            \"salary\": \"Rp 5.000.000 - Rp 6.000.000\",\n            \"jobType\": \"CONTRACT\",\n            \"isActive\": true,\n            \"createdAt\": \"2026-08-21T06:49:18.772Z\",\n            \"updatedAt\": \"2026-08-21T06:49:18.772Z\",\n            \"companyId\": \"1e18b803-d338-4376-8f49-e1c534cdffb9\",\n            \"company\": {\n                \"id\": \"1e18b803-d338-4376-8f49-e1c534cdffb9\",\n                \"name\": \"HR TechCorp\",\n                \"companyName\": \"TechCorp Indonesia\"\n            }\n        },\n        {\n            \"id\": \"2c42173c-e8c5-4653-b6c5-7b37ba6ec12d\",\n            \"title\": \"Backend Developer\",\n            \"description\": \"Membangun dan memelihara REST API menggunakan Node.js dan PostgreSQL.\",\n            \"location\": \"Yogyakarta\",\n            \"salary\": \"Rp 7.000.000 - Rp 10.000.000\",\n            \"jobType\": \"FULL_TIME\",\n            \"isActive\": true,\n            \"createdAt\": \"2026-08-14T08:40:00.347Z\",\n            \"updatedAt\": \"2026-08-14T08:40:00.347Z\",\n            \"companyId\": \"1e18b803-d338-4376-8f49-e1c534cdffb9\",\n            \"company\": {\n                \"id\": \"1e18b803-d338-4376-8f49-e1c534cdffb9\",\n                \"name\": \"HR TechCorp\",\n                \"companyName\": \"TechCorp Indonesia\"\n            }\n        },\n        {\n            \"id\": \"ae3b185b-8340-4d53-ae46-0743daf6cdc5\",\n            \"title\": \"Frontend Developer (React)\",\n            \"description\": \"Mengembangkan antarmuka pengguna dengan React.js dan TypeScript.\",\n            \"location\": \"Jakarta (Remote)\",\n            \"salary\": \"Rp 8.000.000 - Rp 12.000.000\",\n            \"jobType\": \"FULL_TIME\",\n            \"isActive\": true,\n            \"createdAt\": \"2026-08-14T08:40:00.347Z\",\n            \"updatedAt\": \"2026-08-14T08:40:00.347Z\",\n            \"companyId\": \"1e18b803-d338-4376-8f49-e1c534cdffb9\",\n            \"company\": {\n                \"id\": \"1e18b803-d338-4376-8f49-e1c534cdffb9\",\n                \"name\": \"HR TechCorp\",\n                \"companyName\": \"TechCorp Indonesia\"\n            }\n        },\n        {\n            \"id\": \"b4c094e6-0761-4575-9d43-7385196b0411\",\n            \"title\": \"IT Intern\",\n            \"description\": \"Membantu tim engineering dalam pengembangan fitur produk.\",\n            \"location\": \"Yogyakarta\",\n            \"salary\": \"Rp 1.500.000\",\n            \"jobType\": \"INTERNSHIP\",\n            \"isActive\": true,\n            \"createdAt\": \"2026-08-14T08:40:00.347Z\",\n            \"updatedAt\": \"2026-08-21T06:26:55.313Z\",\n            \"companyId\": \"1e18b803-d338-4376-8f49-e1c534cdffb9\",\n            \"company\": {\n                \"id\": \"1e18b803-d338-4376-8f49-e1c534cdffb9\",\n                \"name\": \"HR TechCorp\",\n                \"companyName\": \"TechCorp Indonesia\"\n            }\n        }\n    ]\n}"
+                }
+            ],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "",
+                            "pm.test(\"Response has correct success field\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.success).to.eql(true);",
+                            "});",
+                            "",
+                            "pm.test(\"Response time is reasonable (<3000ms)\", function () {",
+                            "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "TC-APL-005",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{supabase_service_role_api_key_0501}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "",
+                        "value": "",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"jobId\": \"00000000-0000-0000-0000-000000000000\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "https://job-application-platform-olive.vercel.app/api/applications",
+                    "protocol": "https",
+                    "host": [
+                        "job-application-platform-olive",
+                        "vercel",
+                        "app"
+                    ],
+                    "path": [
+                        "api",
+                        "applications"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "name": "TC-APL-005",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "",
+                                "value": "",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"jobId\": \"00000000-0000-0000-0000-000000000000\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "https://job-application-platform-olive.vercel.app/api/applications",
+                            "protocol": "https",
+                            "host": [
+                                "job-application-platform-olive",
+                                "vercel",
+                                "app"
+                            ],
+                            "path": [
+                                "api",
+                                "applications"
+                            ]
+                        }
+                    },
+                    "status": "Not Found",
+                    "code": 404,
+                    "_postman_previewlanguage": null,
+                    "header": [
+                        {
+                            "key": ":status",
+                            "value": 404
+                        },
+                        {
+                            "key": "access-control-allow-credentials",
+                            "value": "true"
+                        },
+                        {
+                            "key": "cache-control",
+                            "value": "public, max-age=0, must-revalidate"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "date",
+                            "value": "Fri, 21 Aug 2026 06:19:35 GMT"
+                        },
+                        {
+                            "key": "etag",
+                            "value": "W/\"4d-aaCTeRTkPwMFqnpVx0KSda1tn0g\""
+                        },
+                        {
+                            "key": "server",
+                            "value": "Vercel"
+                        },
+                        {
+                            "key": "strict-transport-security",
+                            "value": "max-age=63072000; includeSubDomains; preload"
+                        },
+                        {
+                            "key": "vary",
+                            "value": "Origin"
+                        },
+                        {
+                            "key": "x-powered-by",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "x-vercel-cache",
+                            "value": "MISS"
+                        },
+                        {
+                            "key": "x-vercel-id",
+                            "value": "sin1::iad1::n4d7r-1787293174028-9db2723de97e"
+                        },
+                        {
+                            "key": "content-length",
+                            "value": "77"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"success\": false,\n    \"message\": \"Lowongan tidak ditemukan atau sudah tidak aktif\"\n}"
+                }
+            ],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 404\", function () {",
+                            "    pm.response.to.have.status(404);",
+                            "});",
+                            "",
+                            "pm.test(\"Response has correct success field\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.success).to.eql(false);",
+                            "});",
+                            "",
+                            "pm.test(\"Response message is correct\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.message).to.eql(\"Lowongan tidak ditemukan atau sudah tidak aktif\");",
+                            "});",
+                            "",
+                            "pm.test(\"Response time is reasonable (<3000ms)\", function () {",
+                            "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "TC-APL-006",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{supabase_service_role_api_key_1b9j}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"jobId\": \"2c42173c-e8c5-4653-b6c5-7b37ba6ec12d\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "https://job-application-platform-olive.vercel.app/api/applications",
+                    "protocol": "https",
+                    "host": [
+                        "job-application-platform-olive",
+                        "vercel",
+                        "app"
+                    ],
+                    "path": [
+                        "api",
+                        "applications"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "name": "TC-APL-006",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"jobId\": \"2c42173c-e8c5-4653-b6c5-7b37ba6ec12d\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "https://job-application-platform-olive.vercel.app/api/applications",
+                            "protocol": "https",
+                            "host": [
+                                "job-application-platform-olive",
+                                "vercel",
+                                "app"
+                            ],
+                            "path": [
+                                "api",
+                                "applications"
+                            ]
+                        }
+                    },
+                    "status": "Forbidden",
+                    "code": 403,
+                    "_postman_previewlanguage": null,
+                    "header": [
+                        {
+                            "key": ":status",
+                            "value": 403
+                        },
+                        {
+                            "key": "access-control-allow-credentials",
+                            "value": "true"
+                        },
+                        {
+                            "key": "cache-control",
+                            "value": "public, max-age=0, must-revalidate"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "date",
+                            "value": "Fri, 21 Aug 2026 06:22:38 GMT"
+                        },
+                        {
+                            "key": "etag",
+                            "value": "W/\"4f-0NwiC0esdG0Nkjn0YLmbDJnZP2E\""
+                        },
+                        {
+                            "key": "server",
+                            "value": "Vercel"
+                        },
+                        {
+                            "key": "strict-transport-security",
+                            "value": "max-age=63072000; includeSubDomains; preload"
+                        },
+                        {
+                            "key": "vary",
+                            "value": "Origin"
+                        },
+                        {
+                            "key": "x-powered-by",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "x-vercel-cache",
+                            "value": "MISS"
+                        },
+                        {
+                            "key": "x-vercel-id",
+                            "value": "sin1::iad1::frwp6-1787293358790-65d6694a5aa7"
+                        },
+                        {
+                            "key": "content-length",
+                            "value": "79"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"success\": false,\n    \"message\": \"You do not have permission to perform this action\"\n}"
+                }
+            ],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 403\", function () {",
+                            "    pm.response.to.have.status(403);",
+                            "});",
+                            "",
+                            "pm.test(\"Response has correct success field\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.success).to.eql(false);",
+                            "});",
+                            "",
+                            "pm.test(\"Response message is correct\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.message).to.eql(\"You do not have permission to perform this action\");",
+                            "});",
+                            "",
+                            "pm.test(\"Response time is reasonable (<3000ms)\", function () {",
+                            "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "TC-APL-007",
+            "request": {
+                "auth": {
+                    "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"jobId\": \"2c42173c-e8c5-4653-b6c5-7b37ba6ec12d\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "https://job-application-platform-olive.vercel.app/api/applications",
+                    "protocol": "https",
+                    "host": [
+                        "job-application-platform-olive",
+                        "vercel",
+                        "app"
+                    ],
+                    "path": [
+                        "api",
+                        "applications"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "name": "TC-APL-007",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"jobId\": \"2c42173c-e8c5-4653-b6c5-7b37ba6ec12d\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "https://job-application-platform-olive.vercel.app/api/applications",
+                            "protocol": "https",
+                            "host": [
+                                "job-application-platform-olive",
+                                "vercel",
+                                "app"
+                            ],
+                            "path": [
+                                "api",
+                                "applications"
+                            ]
+                        }
+                    },
+                    "status": "Unauthorized",
+                    "code": 401,
+                    "_postman_previewlanguage": null,
+                    "header": [
+                        {
+                            "key": ":status",
+                            "value": 401
+                        },
+                        {
+                            "key": "access-control-allow-credentials",
+                            "value": "true"
+                        },
+                        {
+                            "key": "cache-control",
+                            "value": "public, max-age=0, must-revalidate"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "date",
+                            "value": "Fri, 21 Aug 2026 06:25:18 GMT"
+                        },
+                        {
+                            "key": "etag",
+                            "value": "W/\"36-XkHl1Guvb0KdrO6Rz4iFFxNNcL4\""
+                        },
+                        {
+                            "key": "server",
+                            "value": "Vercel"
+                        },
+                        {
+                            "key": "strict-transport-security",
+                            "value": "max-age=63072000; includeSubDomains; preload"
+                        },
+                        {
+                            "key": "vary",
+                            "value": "Origin"
+                        },
+                        {
+                            "key": "x-powered-by",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "x-vercel-cache",
+                            "value": "MISS"
+                        },
+                        {
+                            "key": "x-vercel-id",
+                            "value": "sin1::iad1::xmklv-1787293518729-da73e639566c"
+                        },
+                        {
+                            "key": "content-length",
+                            "value": "54"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"success\": false,\n    \"message\": \"Invalid or expired token\"\n}"
+                }
+            ],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 401\", function () {",
+                            "    pm.response.to.have.status(401);",
+                            "});",
+                            "",
+                            "pm.test(\"Response has correct success field\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.success).to.eql(false);",
+                            "});",
+                            "",
+                            "pm.test(\"Response message is correct\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.message).to.eql(\"Invalid or expired token\");",
+                            "});",
+                            "",
+                            "pm.test(\"Response time is reasonable (<3000ms)\", function () {",
+                            "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Login Akun JobSeeker B",
+            "request": {
+                "auth": {
+                    "type": "noauth"
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n  \"email\": \"budi.test@mail.com\",\r\n  \"password\": \"rahasia123\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "https://job-application-platform-olive.vercel.app/api/auth/login",
+                    "protocol": "https",
+                    "host": [
+                        "job-application-platform-olive",
+                        "vercel",
+                        "app"
+                    ],
+                    "path": [
+                        "api",
+                        "auth",
+                        "login"
+                    ]
+                }
+            },
+            "response": [],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "",
+                            "pm.test(\"Response contains token\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.data).to.have.property(\"token\");",
+                            "    pm.expect(json.data.token).to.be.a(\"string\").and.not.empty;",
+                            "});",
+                            "",
+                            "pm.test(\"Response does not expose password field\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.data.user).to.not.have.property(\"password\");",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Lamaran JobSeeker B",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{json_web_token_0q3t}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://job-application-platform-olive.vercel.app/api/applications/mine",
+                    "protocol": "https",
+                    "host": [
+                        "job-application-platform-olive",
+                        "vercel",
+                        "app"
+                    ],
+                    "path": [
+                        "api",
+                        "applications",
+                        "mine"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "name": "Lamaran JobSeeker B",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "https://job-application-platform-olive.vercel.app/api/applications/mine",
+                            "protocol": "https",
+                            "host": [
+                                "job-application-platform-olive",
+                                "vercel",
+                                "app"
+                            ],
+                            "path": [
+                                "api",
+                                "applications",
+                                "mine"
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": null,
+                    "header": [
+                        {
+                            "key": ":status",
+                            "value": 200
+                        },
+                        {
+                            "key": "access-control-allow-credentials",
+                            "value": "true"
+                        },
+                        {
+                            "key": "cache-control",
+                            "value": "public, max-age=0, must-revalidate"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "date",
+                            "value": "Fri, 21 Aug 2026 06:40:15 GMT"
+                        },
+                        {
+                            "key": "etag",
+                            "value": "W/\"313-wZMjtqAva3aXp/tpwIqdXd8jfy0\""
+                        },
+                        {
+                            "key": "server",
+                            "value": "Vercel"
+                        },
+                        {
+                            "key": "strict-transport-security",
+                            "value": "max-age=63072000; includeSubDomains; preload"
+                        },
+                        {
+                            "key": "vary",
+                            "value": "Origin"
+                        },
+                        {
+                            "key": "x-powered-by",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "x-vercel-cache",
+                            "value": "BYPASS"
+                        },
+                        {
+                            "key": "x-vercel-id",
+                            "value": "sin1::iad1::kn496-1787294414481-6bffe0c2c382"
+                        },
+                        {
+                            "key": "content-length",
+                            "value": "787"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": \"b26bdff0-04e6-454e-9ebd-6c9fdfa3e4ea\",\n            \"status\": \"APPLIED\",\n            \"createdAt\": \"2026-08-21T06:36:16.697Z\",\n            \"updatedAt\": \"2026-08-21T06:36:16.697Z\",\n            \"jobId\": \"ae3b185b-8340-4d53-ae46-0743daf6cdc5\",\n            \"jobSeekerId\": \"50b6cac1-3c51-499c-b16a-22c203962949\",\n            \"job\": {\n                \"id\": \"ae3b185b-8340-4d53-ae46-0743daf6cdc5\",\n                \"title\": \"Frontend Developer (React)\",\n                \"description\": \"Mengembangkan antarmuka pengguna dengan React.js dan TypeScript.\",\n                \"location\": \"Jakarta (Remote)\",\n                \"salary\": \"Rp 8.000.000 - Rp 12.000.000\",\n                \"jobType\": \"FULL_TIME\",\n                \"isActive\": true,\n                \"createdAt\": \"2026-08-14T08:40:00.347Z\",\n                \"updatedAt\": \"2026-08-14T08:40:00.347Z\",\n                \"companyId\": \"1e18b803-d338-4376-8f49-e1c534cdffb9\",\n                \"company\": {\n                    \"id\": \"1e18b803-d338-4376-8f49-e1c534cdffb9\",\n                    \"name\": \"HR TechCorp\",\n                    \"companyName\": \"TechCorp Indonesia\"\n                }\n            }\n        }\n    ]\n}"
+                }
+            ],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "",
+                            "pm.test(\"Response has correct success field\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.success).to.eql(true);",
+                            "});",
+                            "",
+                            "pm.test(\"Response time is reasonable (<3000ms)\", function () {",
+                            "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "TC-MYAPP-004",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{auth_secret_0t7q}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://job-application-platform-olive.vercel.app/api/applications/b26bdff0-04e6-454e-9ebd-6c9fdfa3e4ea/history",
+                    "protocol": "https",
+                    "host": [
+                        "job-application-platform-olive",
+                        "vercel",
+                        "app"
+                    ],
+                    "path": [
+                        "api",
+                        "applications",
+                        "b26bdff0-04e6-454e-9ebd-6c9fdfa3e4ea",
+                        "history"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "name": "TC-MYAPP-004",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "https://job-application-platform-olive.vercel.app/api/applications/b26bdff0-04e6-454e-9ebd-6c9fdfa3e4ea/history",
+                            "protocol": "https",
+                            "host": [
+                                "job-application-platform-olive",
+                                "vercel",
+                                "app"
+                            ],
+                            "path": [
+                                "api",
+                                "applications",
+                                "b26bdff0-04e6-454e-9ebd-6c9fdfa3e4ea",
+                                "history"
+                            ]
+                        }
+                    },
+                    "status": "Forbidden",
+                    "code": 403,
+                    "_postman_previewlanguage": null,
+                    "header": [
+                        {
+                            "key": ":status",
+                            "value": 403
+                        },
+                        {
+                            "key": "access-control-allow-credentials",
+                            "value": "true"
+                        },
+                        {
+                            "key": "cache-control",
+                            "value": "public, max-age=0, must-revalidate"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "date",
+                            "value": "Fri, 21 Aug 2026 06:42:19 GMT"
+                        },
+                        {
+                            "key": "etag",
+                            "value": "W/\"46-CWYDv3I5kUHP+5cCygoXIueMgvY\""
+                        },
+                        {
+                            "key": "server",
+                            "value": "Vercel"
+                        },
+                        {
+                            "key": "strict-transport-security",
+                            "value": "max-age=63072000; includeSubDomains; preload"
+                        },
+                        {
+                            "key": "vary",
+                            "value": "Origin"
+                        },
+                        {
+                            "key": "x-powered-by",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "x-vercel-cache",
+                            "value": "BYPASS"
+                        },
+                        {
+                            "key": "x-vercel-id",
+                            "value": "sin1::iad1::wbtvg-1787294536831-47fa666b78bf"
+                        },
+                        {
+                            "key": "content-length",
+                            "value": "70"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"success\": false,\n    \"message\": \"Anda tidak memiliki akses ke lamaran ini\"\n}"
+                }
+            ],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 403\", function () {",
+                            "    pm.response.to.have.status(403);",
+                            "});",
+                            "",
+                            "pm.test(\"Response has correct success field\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.success).to.eql(false);",
+                            "});",
+                            "",
+                            "pm.test(\"Response message is correct\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.message).to.eql(\"Anda tidak memiliki akses ke lamaran ini\");",
+                            "});",
+                            "",
+                            "pm.test(\"Response time is reasonable (<3000ms)\", function () {",
+                            "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "TC-CMP-004",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{auth_secret_0k7m}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"title\": \"QA Test Invalid JobType\",\r\n    \"description\": \"Testing validasi jobType di luar enum\",\r\n    \"location\": \"Jakarta\",\r\n    \"salary\": \"Rp5.000.000\",\r\n    \"jobType\": \"REMOTE\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "https://job-application-platform-olive.vercel.app/api/jobs",
+                    "protocol": "https",
+                    "host": [
+                        "job-application-platform-olive",
+                        "vercel",
+                        "app"
+                    ],
+                    "path": [
+                        "api",
+                        "jobs"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "name": "TC-CMP-004",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"title\": \"QA Test Invalid JobType\",\r\n    \"description\": \"Testing validasi jobType di luar enum\",\r\n    \"location\": \"Jakarta\",\r\n    \"salary\": \"Rp5.000.000\",\r\n    \"jobType\": \"REMOTE\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "https://job-application-platform-olive.vercel.app/api/jobs",
+                            "protocol": "https",
+                            "host": [
+                                "job-application-platform-olive",
+                                "vercel",
+                                "app"
+                            ],
+                            "path": [
+                                "api",
+                                "jobs"
+                            ]
+                        }
+                    },
+                    "status": "Bad Request",
+                    "code": 400,
+                    "_postman_previewlanguage": null,
+                    "header": [
+                        {
+                            "key": ":status",
+                            "value": 400
+                        },
+                        {
+                            "key": "access-control-allow-credentials",
+                            "value": "true"
+                        },
+                        {
+                            "key": "cache-control",
+                            "value": "public, max-age=0, must-revalidate"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "date",
+                            "value": "Fri, 21 Aug 2026 07:04:07 GMT"
+                        },
+                        {
+                            "key": "etag",
+                            "value": "W/\"d1-BhgTiYrgLFg8dmuVUhZhVvocIag\""
+                        },
+                        {
+                            "key": "server",
+                            "value": "Vercel"
+                        },
+                        {
+                            "key": "strict-transport-security",
+                            "value": "max-age=63072000; includeSubDomains; preload"
+                        },
+                        {
+                            "key": "vary",
+                            "value": "Origin"
+                        },
+                        {
+                            "key": "x-powered-by",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "x-vercel-cache",
+                            "value": "MISS"
+                        },
+                        {
+                            "key": "x-vercel-id",
+                            "value": "sin1::iad1::g676v-1787295846899-25d66b499f76"
+                        },
+                        {
+                            "key": "content-length",
+                            "value": "209"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"success\": false,\n    \"message\": \"Validation error\",\n    \"errors\": [\n        {\n            \"path\": \"body.jobType\",\n            \"message\": \"Invalid enum value. Expected 'FULL_TIME' | 'PART_TIME' | 'CONTRACT' | 'INTERNSHIP' | 'FREELANCE', received 'REMOTE'\"\n        }\n    ]\n}"
+                }
+            ],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 400\", function () {",
+                            "    pm.response.to.have.status(400);",
+                            "});",
+                            "",
+                            "pm.test(\"Response has correct success field\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.success).to.eql(false);",
+                            "});",
+                            "",
+                            "pm.test(\"Response message is correct\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.message).to.eql(\"Validation error\");",
+                            "});",
+                            "",
+                            "pm.test(\"Response time is reasonable (<3000ms)\", function () {",
+                            "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "TC-CMP-005",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{supabase_service_role_api_key_0t7q}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"title\": \"IT Support\",\r\n    \"description\": \"Troubleshooting hardware maupun software yang diperlukan.\",\r\n    \"location\": \"Jakarta\",\r\n    \"salary\": \"Rp 5.000.000 - Rp 6.000.000\",\r\n    \"jobType\": \"CONTRACT\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "https://job-application-platform-olive.vercel.app/api/jobs",
+                    "protocol": "https",
+                    "host": [
+                        "job-application-platform-olive",
+                        "vercel",
+                        "app"
+                    ],
+                    "path": [
+                        "api",
+                        "jobs"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "name": "TC-CMP-005",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"title\": \"IT Support\",\r\n    \"description\": \"Troubleshooting hardware maupun software yang diperlukan.\",\r\n    \"location\": \"Jakarta\",\r\n    \"salary\": \"Rp 5.000.000 - Rp 6.000.000\",\r\n    \"jobType\": \"CONTRACT\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "https://job-application-platform-olive.vercel.app/api/jobs",
+                            "protocol": "https",
+                            "host": [
+                                "job-application-platform-olive",
+                                "vercel",
+                                "app"
+                            ],
+                            "path": [
+                                "api",
+                                "jobs"
+                            ]
+                        }
+                    },
+                    "status": "Forbidden",
+                    "code": 403,
+                    "_postman_previewlanguage": null,
+                    "header": [
+                        {
+                            "key": ":status",
+                            "value": 403
+                        },
+                        {
+                            "key": "access-control-allow-credentials",
+                            "value": "true"
+                        },
+                        {
+                            "key": "cache-control",
+                            "value": "public, max-age=0, must-revalidate"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "date",
+                            "value": "Fri, 21 Aug 2026 07:11:02 GMT"
+                        },
+                        {
+                            "key": "etag",
+                            "value": "W/\"4f-0NwiC0esdG0Nkjn0YLmbDJnZP2E\""
+                        },
+                        {
+                            "key": "server",
+                            "value": "Vercel"
+                        },
+                        {
+                            "key": "strict-transport-security",
+                            "value": "max-age=63072000; includeSubDomains; preload"
+                        },
+                        {
+                            "key": "vary",
+                            "value": "Origin"
+                        },
+                        {
+                            "key": "x-powered-by",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "x-vercel-cache",
+                            "value": "MISS"
+                        },
+                        {
+                            "key": "x-vercel-id",
+                            "value": "sin1::iad1::c4t8b-1787296262534-088592c0c5ab"
+                        },
+                        {
+                            "key": "content-length",
+                            "value": "79"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"success\": false,\n    \"message\": \"You do not have permission to perform this action\"\n}"
+                }
+            ],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 403\", function () {",
+                            "    pm.response.to.have.status(403);",
+                            "});",
+                            "",
+                            "pm.test(\"Response has correct success field\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.success).to.eql(false);",
+                            "});",
+                            "",
+                            "pm.test(\"Response message is correct\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.message).to.eql(\"You do not have permission to perform this action\");",
+                            "});",
+                            "",
+                            "pm.test(\"Response time is reasonable (<3000ms)\", function () {",
+                            "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "TC-CMP-008",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{auth_secret_0k7m}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"title\": \"coba ubah punya company B\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "https://job-application-platform-olive.vercel.app/api/jobs/4ea9133a-3ac2-40c3-a855-0ceb3a2aa489",
+                    "protocol": "https",
+                    "host": [
+                        "job-application-platform-olive",
+                        "vercel",
+                        "app"
+                    ],
+                    "path": [
+                        "api",
+                        "jobs",
+                        "4ea9133a-3ac2-40c3-a855-0ceb3a2aa489"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "name": "TC-CMP-008",
+                    "originalRequest": {
+                        "method": "PATCH",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"title\": \"coba ubah punya company B\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "https://job-application-platform-olive.vercel.app/api/jobs/4ea9133a-3ac2-40c3-a855-0ceb3a2aa489",
+                            "protocol": "https",
+                            "host": [
+                                "job-application-platform-olive",
+                                "vercel",
+                                "app"
+                            ],
+                            "path": [
+                                "api",
+                                "jobs",
+                                "4ea9133a-3ac2-40c3-a855-0ceb3a2aa489"
+                            ]
+                        }
+                    },
+                    "status": "Forbidden",
+                    "code": 403,
+                    "_postman_previewlanguage": null,
+                    "header": [
+                        {
+                            "key": ":status",
+                            "value": 403
+                        },
+                        {
+                            "key": "access-control-allow-credentials",
+                            "value": "true"
+                        },
+                        {
+                            "key": "cache-control",
+                            "value": "public, max-age=0, must-revalidate"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "date",
+                            "value": "Fri, 21 Aug 2026 07:29:15 GMT"
+                        },
+                        {
+                            "key": "etag",
+                            "value": "W/\"47-7nYm4vWJFU9JTi+kktQ0+HvbBoI\""
+                        },
+                        {
+                            "key": "server",
+                            "value": "Vercel"
+                        },
+                        {
+                            "key": "strict-transport-security",
+                            "value": "max-age=63072000; includeSubDomains; preload"
+                        },
+                        {
+                            "key": "vary",
+                            "value": "Origin"
+                        },
+                        {
+                            "key": "x-powered-by",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "x-vercel-cache",
+                            "value": "MISS"
+                        },
+                        {
+                            "key": "x-vercel-id",
+                            "value": "sin1::iad1::k84mb-1787297353651-5a601fd3297f"
+                        },
+                        {
+                            "key": "content-length",
+                            "value": "71"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"success\": false,\n    \"message\": \"Anda tidak memiliki akses ke lowongan ini\"\n}"
+                }
+            ],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 403\", function () {",
+                            "    pm.response.to.have.status(403);",
+                            "});",
+                            "",
+                            "pm.test(\"Response has correct success field\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.success).to.eql(false);",
+                            "});",
+                            "",
+                            "pm.test(\"Response message is correct\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.message).to.eql(\"Anda tidak memiliki akses ke lowongan ini\");",
+                            "});",
+                            "",
+                            "pm.test(\"Response time is reasonable (<3000ms)\", function () {",
+                            "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "TC-CAND-010",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{supabase_service_role_api_key_0k7m}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"status\": \"HIRED\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "https://job-application-platform-olive.vercel.app/api/applications/ae3b185b-8340-4d53-ae46-0743daf6cdc5/status",
+                    "protocol": "https",
+                    "host": [
+                        "job-application-platform-olive",
+                        "vercel",
+                        "app"
+                    ],
+                    "path": [
+                        "api",
+                        "applications",
+                        "ae3b185b-8340-4d53-ae46-0743daf6cdc5",
+                        "status"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "name": "TC-CAND-010",
+                    "originalRequest": {
+                        "method": "PATCH",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"status\": \"HIRED\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "https://job-application-platform-olive.vercel.app/api/applications/ae3b185b-8340-4d53-ae46-0743daf6cdc5/status",
+                            "protocol": "https",
+                            "host": [
+                                "job-application-platform-olive",
+                                "vercel",
+                                "app"
+                            ],
+                            "path": [
+                                "api",
+                                "applications",
+                                "ae3b185b-8340-4d53-ae46-0743daf6cdc5",
+                                "status"
+                            ]
+                        }
+                    },
+                    "status": "Bad Request",
+                    "code": 400,
+                    "_postman_previewlanguage": null,
+                    "header": [
+                        {
+                            "key": ":status",
+                            "value": 400
+                        },
+                        {
+                            "key": "access-control-allow-credentials",
+                            "value": "true"
+                        },
+                        {
+                            "key": "cache-control",
+                            "value": "public, max-age=0, must-revalidate"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "date",
+                            "value": "Fri, 21 Aug 2026 08:04:46 GMT"
+                        },
+                        {
+                            "key": "etag",
+                            "value": "W/\"cd-UBRtj8X7jOprR+cydegHYmhx/i4\""
+                        },
+                        {
+                            "key": "server",
+                            "value": "Vercel"
+                        },
+                        {
+                            "key": "strict-transport-security",
+                            "value": "max-age=63072000; includeSubDomains; preload"
+                        },
+                        {
+                            "key": "vary",
+                            "value": "Origin"
+                        },
+                        {
+                            "key": "x-powered-by",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "x-vercel-cache",
+                            "value": "MISS"
+                        },
+                        {
+                            "key": "x-vercel-id",
+                            "value": "sin1::iad1::ntdtn-1787299485502-2f9e5b9060e1"
+                        },
+                        {
+                            "key": "content-length",
+                            "value": "205"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"success\": false,\n    \"message\": \"Validation error\",\n    \"errors\": [\n        {\n            \"path\": \"body.status\",\n            \"message\": \"Invalid enum value. Expected 'APPLIED' | 'REVIEWING' | 'SHORTLISTED' | 'REJECTED' | 'ACCEPTED', received 'HIRED'\"\n        }\n    ]\n}"
+                }
+            ],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 400\", function () {",
+                            "    pm.response.to.have.status(400);",
+                            "});",
+                            "",
+                            "pm.test(\"Response has correct success field\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.success).to.eql(false);",
+                            "});",
+                            "",
+                            "pm.test(\"Response message is correct\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.message).to.eql(\"Validation error\");",
+                            "});",
+                            "",
+                            "pm.test(\"Response time is reasonable (<3000ms)\", function () {",
+                            "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "TC-CAND-011",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{auth_secret_0k7m}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"status\": \"REVIEWING\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "https://job-application-platform-olive.vercel.app/api/applications/f011fc29-8638-47bd-ae51-89a7ead5eadf/status",
+                    "protocol": "https",
+                    "host": [
+                        "job-application-platform-olive",
+                        "vercel",
+                        "app"
+                    ],
+                    "path": [
+                        "api",
+                        "applications",
+                        "f011fc29-8638-47bd-ae51-89a7ead5eadf",
+                        "status"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "name": "TC-CAND-011",
+                    "originalRequest": {
+                        "method": "PATCH",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"status\": \"REVIEWING\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "https://job-application-platform-olive.vercel.app/api/applications/f011fc29-8638-47bd-ae51-89a7ead5eadf/status",
+                            "protocol": "https",
+                            "host": [
+                                "job-application-platform-olive",
+                                "vercel",
+                                "app"
+                            ],
+                            "path": [
+                                "api",
+                                "applications",
+                                "f011fc29-8638-47bd-ae51-89a7ead5eadf",
+                                "status"
+                            ]
+                        }
+                    },
+                    "status": "Forbidden",
+                    "code": 403,
+                    "_postman_previewlanguage": null,
+                    "header": [
+                        {
+                            "key": ":status",
+                            "value": 403
+                        },
+                        {
+                            "key": "access-control-allow-credentials",
+                            "value": "true"
+                        },
+                        {
+                            "key": "cache-control",
+                            "value": "public, max-age=0, must-revalidate"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "date",
+                            "value": "Fri, 21 Aug 2026 08:19:16 GMT"
+                        },
+                        {
+                            "key": "etag",
+                            "value": "W/\"46-CWYDv3I5kUHP+5cCygoXIueMgvY\""
+                        },
+                        {
+                            "key": "server",
+                            "value": "Vercel"
+                        },
+                        {
+                            "key": "strict-transport-security",
+                            "value": "max-age=63072000; includeSubDomains; preload"
+                        },
+                        {
+                            "key": "vary",
+                            "value": "Origin"
+                        },
+                        {
+                            "key": "x-powered-by",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "x-vercel-cache",
+                            "value": "MISS"
+                        },
+                        {
+                            "key": "x-vercel-id",
+                            "value": "sin1::iad1::h5cz2-1787300355095-45c6dda8ee53"
+                        },
+                        {
+                            "key": "content-length",
+                            "value": "70"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"success\": false,\n    \"message\": \"Anda tidak memiliki akses ke lamaran ini\"\n}"
+                }
+            ],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 403\", function () {",
+                            "    pm.response.to.have.status(403);",
+                            "});",
+                            "",
+                            "pm.test(\"Response has correct success field\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.success).to.eql(false);",
+                            "});",
+                            "",
+                            "pm.test(\"Response message is correct\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.message).to.eql(\"Anda tidak memiliki akses ke lamaran ini\");",
+                            "});",
+                            "",
+                            "pm.test(\"Response time is reasonable (<3000ms)\", function () {",
+                            "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "TC-CAND-012",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{auth_secret_0ye4}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\r\n    \"status\": \"SHORTLISTED\",\r\n    \"note\": \"Lolos screening CV, lanjut interview\"\r\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "https://job-application-platform-olive.vercel.app/api/applications/f011fc29-8638-47bd-ae51-89a7ead5eadf/status",
+                    "protocol": "https",
+                    "host": [
+                        "job-application-platform-olive",
+                        "vercel",
+                        "app"
+                    ],
+                    "path": [
+                        "api",
+                        "applications",
+                        "f011fc29-8638-47bd-ae51-89a7ead5eadf",
+                        "status"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "name": "TC-CAND-012",
+                    "originalRequest": {
+                        "method": "PATCH",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\r\n    \"status\": \"SHORTLISTED\",\r\n    \"note\": \"Lolos screening CV, lanjut interview\"\r\n}",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "https://job-application-platform-olive.vercel.app/api/applications/f011fc29-8638-47bd-ae51-89a7ead5eadf/status",
+                            "protocol": "https",
+                            "host": [
+                                "job-application-platform-olive",
+                                "vercel",
+                                "app"
+                            ],
+                            "path": [
+                                "api",
+                                "applications",
+                                "f011fc29-8638-47bd-ae51-89a7ead5eadf",
+                                "status"
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": null,
+                    "header": [
+                        {
+                            "key": ":status",
+                            "value": 200
+                        },
+                        {
+                            "key": "access-control-allow-credentials",
+                            "value": "true"
+                        },
+                        {
+                            "key": "cache-control",
+                            "value": "public, max-age=0, must-revalidate"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "date",
+                            "value": "Sat, 22 Aug 2026 09:04:31 GMT"
+                        },
+                        {
+                            "key": "etag",
+                            "value": "W/\"13d-RLKWH+DyquVeVqdo87Wsom0ntQA\""
+                        },
+                        {
+                            "key": "server",
+                            "value": "Vercel"
+                        },
+                        {
+                            "key": "strict-transport-security",
+                            "value": "max-age=63072000; includeSubDomains; preload"
+                        },
+                        {
+                            "key": "vary",
+                            "value": "Origin"
+                        },
+                        {
+                            "key": "x-powered-by",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "x-vercel-cache",
+                            "value": "MISS"
+                        },
+                        {
+                            "key": "x-vercel-id",
+                            "value": "sin1::iad1::j28sk-1787389469098-d1c4f95a0c75"
+                        },
+                        {
+                            "key": "content-length",
+                            "value": "317"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"success\": true,\n    \"message\": \"Status lamaran berhasil diperbarui\",\n    \"data\": {\n        \"id\": \"f011fc29-8638-47bd-ae51-89a7ead5eadf\",\n        \"status\": \"SHORTLISTED\",\n        \"createdAt\": \"2026-08-21T08:07:12.734Z\",\n        \"updatedAt\": \"2026-08-22T09:04:30.354Z\",\n        \"jobId\": \"4ea9133a-3ac2-40c3-a855-0ceb3a2aa489\",\n        \"jobSeekerId\": \"50b6cac1-3c51-499c-b16a-22c203962949\"\n    }\n}"
+                }
+            ],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "",
+                            "pm.test(\"Response has correct success field\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.success).to.eql(true);",
+                            "});",
+                            "",
+                            "pm.test(\"Response message is correct\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.message).to.eql(\"Status lamaran berhasil diperbarui\");",
+                            "});",
+                            "",
+                            "pm.test(\"Response time is reasonable (<3000ms)\", function () {",
+                            "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "TC-CAND-003",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{json_web_token_0k7m}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://job-application-platform-olive.vercel.app/api/applications/job/4ea9133a-3ac2-40c3-a855-0ceb3a2aa489",
+                    "protocol": "https",
+                    "host": [
+                        "job-application-platform-olive",
+                        "vercel",
+                        "app"
+                    ],
+                    "path": [
+                        "api",
+                        "applications",
+                        "job",
+                        "4ea9133a-3ac2-40c3-a855-0ceb3a2aa489"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "name": "TC-CAND-003",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "https://job-application-platform-olive.vercel.app/api/applications/job/4ea9133a-3ac2-40c3-a855-0ceb3a2aa489",
+                            "protocol": "https",
+                            "host": [
+                                "job-application-platform-olive",
+                                "vercel",
+                                "app"
+                            ],
+                            "path": [
+                                "api",
+                                "applications",
+                                "job",
+                                "4ea9133a-3ac2-40c3-a855-0ceb3a2aa489"
+                            ]
+                        }
+                    },
+                    "status": "Forbidden",
+                    "code": 403,
+                    "_postman_previewlanguage": null,
+                    "header": [
+                        {
+                            "key": ":status",
+                            "value": 403
+                        },
+                        {
+                            "key": "access-control-allow-credentials",
+                            "value": "true"
+                        },
+                        {
+                            "key": "cache-control",
+                            "value": "public, max-age=0, must-revalidate"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "date",
+                            "value": "Fri, 21 Aug 2026 07:40:55 GMT"
+                        },
+                        {
+                            "key": "etag",
+                            "value": "W/\"47-7nYm4vWJFU9JTi+kktQ0+HvbBoI\""
+                        },
+                        {
+                            "key": "server",
+                            "value": "Vercel"
+                        },
+                        {
+                            "key": "strict-transport-security",
+                            "value": "max-age=63072000; includeSubDomains; preload"
+                        },
+                        {
+                            "key": "vary",
+                            "value": "Origin"
+                        },
+                        {
+                            "key": "x-powered-by",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "x-vercel-cache",
+                            "value": "BYPASS"
+                        },
+                        {
+                            "key": "x-vercel-id",
+                            "value": "sin1::iad1::z8str-1787298055229-7c05416a94c8"
+                        },
+                        {
+                            "key": "content-length",
+                            "value": "71"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"success\": false,\n    \"message\": \"Anda tidak memiliki akses ke lowongan ini\"\n}"
+                }
+            ],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 403\", function () {",
+                            "    pm.response.to.have.status(403);",
+                            "});",
+                            "",
+                            "pm.test(\"Response has correct success field\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.success).to.eql(false);",
+                            "});",
+                            "",
+                            "pm.test(\"Response message is correct\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.message).to.eql(\"Anda tidak memiliki akses ke lowongan ini\");",
+                            "});",
+                            "",
+                            "pm.test(\"Response time is reasonable (<3000ms)\", function () {",
+                            "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "TC-CAND-004",
+            "protocolProfileBehavior": {
+                "disableBodyPruning": true
+            },
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{supabase_service_role_api_key_0t7q}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "GET",
+                "header": [],
+                "body": {
+                    "mode": "raw",
+                    "raw": "",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "https://job-application-platform-olive.vercel.app/api/applications/job/b4c094e6-0761-4575-9d43-7385196b0411",
+                    "protocol": "https",
+                    "host": [
+                        "job-application-platform-olive",
+                        "vercel",
+                        "app"
+                    ],
+                    "path": [
+                        "api",
+                        "applications",
+                        "job",
+                        "b4c094e6-0761-4575-9d43-7385196b0411"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "name": "TC-CAND-004",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            }
+                        },
+                        "url": {
+                            "raw": "https://job-application-platform-olive.vercel.app/api/applications/job/b4c094e6-0761-4575-9d43-7385196b0411",
+                            "protocol": "https",
+                            "host": [
+                                "job-application-platform-olive",
+                                "vercel",
+                                "app"
+                            ],
+                            "path": [
+                                "api",
+                                "applications",
+                                "job",
+                                "b4c094e6-0761-4575-9d43-7385196b0411"
+                            ]
+                        }
+                    },
+                    "status": "Forbidden",
+                    "code": 403,
+                    "_postman_previewlanguage": null,
+                    "header": [
+                        {
+                            "key": ":status",
+                            "value": 403
+                        },
+                        {
+                            "key": "access-control-allow-credentials",
+                            "value": "true"
+                        },
+                        {
+                            "key": "cache-control",
+                            "value": "public, max-age=0, must-revalidate"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "date",
+                            "value": "Fri, 21 Aug 2026 07:46:02 GMT"
+                        },
+                        {
+                            "key": "etag",
+                            "value": "W/\"4f-0NwiC0esdG0Nkjn0YLmbDJnZP2E\""
+                        },
+                        {
+                            "key": "server",
+                            "value": "Vercel"
+                        },
+                        {
+                            "key": "strict-transport-security",
+                            "value": "max-age=63072000; includeSubDomains; preload"
+                        },
+                        {
+                            "key": "vary",
+                            "value": "Origin"
+                        },
+                        {
+                            "key": "x-powered-by",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "x-vercel-cache",
+                            "value": "BYPASS"
+                        },
+                        {
+                            "key": "x-vercel-id",
+                            "value": "sin1::iad1::bbcv8-1787298361488-fdc676a8e713"
+                        },
+                        {
+                            "key": "content-length",
+                            "value": "79"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"success\": false,\n    \"message\": \"You do not have permission to perform this action\"\n}"
+                }
+            ],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 403\", function () {",
+                            "    pm.response.to.have.status(403);",
+                            "});",
+                            "",
+                            "pm.test(\"Response has correct success field\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.success).to.eql(false);",
+                            "});",
+                            "",
+                            "pm.test(\"Response message is correct\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.message).to.eql(\"You do not have permission to perform this action\");",
+                            "});",
+                            "",
+                            "pm.test(\"Response time is reasonable (<3000ms)\", function () {",
+                            "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "data pelamar ke lamaran company B",
+            "request": {
+                "auth": {
+                    "type": "bearer",
+                    "bearer": [
+                        {
+                            "key": "token",
+                            "value": "{{json_web_token_0q3t}}",
+                            "type": "string"
+                        }
+                    ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://job-application-platform-olive.vercel.app/api/applications/mine",
+                    "protocol": "https",
+                    "host": [
+                        "job-application-platform-olive",
+                        "vercel",
+                        "app"
+                    ],
+                    "path": [
+                        "api",
+                        "applications",
+                        "mine"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "name": "data pelamar ke lamaran company B",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "https://job-application-platform-olive.vercel.app/api/applications/mine",
+                            "protocol": "https",
+                            "host": [
+                                "job-application-platform-olive",
+                                "vercel",
+                                "app"
+                            ],
+                            "path": [
+                                "api",
+                                "applications",
+                                "mine"
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": null,
+                    "header": [
+                        {
+                            "key": ":status",
+                            "value": 200
+                        },
+                        {
+                            "key": "access-control-allow-credentials",
+                            "value": "true"
+                        },
+                        {
+                            "key": "cache-control",
+                            "value": "public, max-age=0, must-revalidate"
+                        },
+                        {
+                            "key": "content-encoding",
+                            "value": "br"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "date",
+                            "value": "Fri, 21 Aug 2026 08:18:17 GMT"
+                        },
+                        {
+                            "key": "etag",
+                            "value": "W/\"5bd-nq5tmVCbIrdWbFfsgL9QYbirj38\""
+                        },
+                        {
+                            "key": "server",
+                            "value": "Vercel"
+                        },
+                        {
+                            "key": "strict-transport-security",
+                            "value": "max-age=63072000; includeSubDomains; preload"
+                        },
+                        {
+                            "key": "vary",
+                            "value": "Origin"
+                        },
+                        {
+                            "key": "x-powered-by",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "x-vercel-cache",
+                            "value": "BYPASS"
+                        },
+                        {
+                            "key": "x-vercel-id",
+                            "value": "sin1::iad1::xk5jx-1787300296192-383cd535de81"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"success\": true,\n    \"data\": [\n        {\n            \"id\": \"f011fc29-8638-47bd-ae51-89a7ead5eadf\",\n            \"status\": \"APPLIED\",\n            \"createdAt\": \"2026-08-21T08:07:12.734Z\",\n            \"updatedAt\": \"2026-08-21T08:07:12.734Z\",\n            \"jobId\": \"4ea9133a-3ac2-40c3-a855-0ceb3a2aa489\",\n            \"jobSeekerId\": \"50b6cac1-3c51-499c-b16a-22c203962949\",\n            \"job\": {\n                \"id\": \"4ea9133a-3ac2-40c3-a855-0ceb3a2aa489\",\n                \"title\": \"Backend Developer (Laravel)\",\n                \"description\": \"asdasdasdasdasd\",\n                \"location\": \"Yogyakarta\",\n                \"salary\": \"Rp 3.000.000\",\n                \"jobType\": \"FULL_TIME\",\n                \"isActive\": true,\n                \"createdAt\": \"2026-08-21T07:18:02.897Z\",\n                \"updatedAt\": \"2026-08-21T07:18:02.897Z\",\n                \"companyId\": \"a079cbe5-8e4a-4b27-95c5-c0e7696befe2\",\n                \"company\": {\n                    \"id\": \"a079cbe5-8e4a-4b27-95c5-c0e7696befe2\",\n                    \"name\": \"kompanion\",\n                    \"companyName\": \"kompanion\"\n                }\n            }\n        },\n        {\n            \"id\": \"b26bdff0-04e6-454e-9ebd-6c9fdfa3e4ea\",\n            \"status\": \"REJECTED\",\n            \"createdAt\": \"2026-08-21T06:36:16.697Z\",\n            \"updatedAt\": \"2026-08-21T07:58:07.206Z\",\n            \"jobId\": \"ae3b185b-8340-4d53-ae46-0743daf6cdc5\",\n            \"jobSeekerId\": \"50b6cac1-3c51-499c-b16a-22c203962949\",\n            \"job\": {\n                \"id\": \"ae3b185b-8340-4d53-ae46-0743daf6cdc5\",\n                \"title\": \"Frontend Developer (React)\",\n                \"description\": \"Mengembangkan antarmuka pengguna dengan React.js dan TypeScript.\",\n                \"location\": \"Jakarta (Remote)\",\n                \"salary\": \"Rp 8.000.000 - Rp 12.000.000\",\n                \"jobType\": \"FULL_TIME\",\n                \"isActive\": true,\n                \"createdAt\": \"2026-08-14T08:40:00.347Z\",\n                \"updatedAt\": \"2026-08-14T08:40:00.347Z\",\n                \"companyId\": \"1e18b803-d338-4376-8f49-e1c534cdffb9\",\n                \"company\": {\n                    \"id\": \"1e18b803-d338-4376-8f49-e1c534cdffb9\",\n                    \"name\": \"HR TechCorp\",\n                    \"companyName\": \"TechCorp Indonesia\"\n                }\n            }\n        }\n    ]\n}"
+                }
+            ],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "",
+                            "pm.test(\"Response has correct success field\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.success).to.eql(true);",
+                            "});",
+                            "",
+                            "pm.test(\"Response time is reasonable (<3000ms)\", function () {",
+                            "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "TC-API-001",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://job-application-platform-olive.vercel.app/api/health",
+                    "protocol": "https",
+                    "host": [
+                        "job-application-platform-olive",
+                        "vercel",
+                        "app"
+                    ],
+                    "path": [
+                        "api",
+                        "health"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "name": "TC-API-001",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "https://job-application-platform-olive.vercel.app/api/health",
+                            "protocol": "https",
+                            "host": [
+                                "job-application-platform-olive",
+                                "vercel",
+                                "app"
+                            ],
+                            "path": [
+                                "api",
+                                "health"
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": null,
+                    "header": [
+                        {
+                            "key": ":status",
+                            "value": 200
+                        },
+                        {
+                            "key": "access-control-allow-credentials",
+                            "value": "true"
+                        },
+                        {
+                            "key": "age",
+                            "value": "0"
+                        },
+                        {
+                            "key": "cache-control",
+                            "value": "public, max-age=0, must-revalidate"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "date",
+                            "value": "Sat, 22 Aug 2026 09:09:49 GMT"
+                        },
+                        {
+                            "key": "etag",
+                            "value": "W/\"38-rNe7Mt7j/yu6w5Y/DtCVkWomXWU\""
+                        },
+                        {
+                            "key": "server",
+                            "value": "Vercel"
+                        },
+                        {
+                            "key": "strict-transport-security",
+                            "value": "max-age=63072000; includeSubDomains; preload"
+                        },
+                        {
+                            "key": "vary",
+                            "value": "Origin"
+                        },
+                        {
+                            "key": "x-powered-by",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "x-vercel-cache",
+                            "value": "MISS"
+                        },
+                        {
+                            "key": "x-vercel-id",
+                            "value": "sin1::iad1::s2hvb-1787389789543-b41ac80b437d"
+                        },
+                        {
+                            "key": "content-length",
+                            "value": "56"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"success\": true,\n    \"message\": \"IndoKerja.id API is running\"\n}"
+                }
+            ],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 200\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "",
+                            "pm.test(\"Response has correct success field\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.success).to.eql(true);",
+                            "});",
+                            "",
+                            "pm.test(\"Response message is correct\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.message).to.eql(\"IndoKerja.id API is running\");",
+                            "});",
+                            "",
+                            "pm.test(\"Response time is reasonable (<3000ms)\", function () {",
+                            "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "TC-API-002",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "https://job-application-platform-olive.vercel.app/api/coba-route-tidak-ada",
+                    "protocol": "https",
+                    "host": [
+                        "job-application-platform-olive",
+                        "vercel",
+                        "app"
+                    ],
+                    "path": [
+                        "api",
+                        "coba-route-tidak-ada"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "name": "TC-API-002",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "https://job-application-platform-olive.vercel.app/api/coba-route-tidak-ada",
+                            "protocol": "https",
+                            "host": [
+                                "job-application-platform-olive",
+                                "vercel",
+                                "app"
+                            ],
+                            "path": [
+                                "api",
+                                "coba-route-tidak-ada"
+                            ]
+                        }
+                    },
+                    "status": "Not Found",
+                    "code": 404,
+                    "_postman_previewlanguage": null,
+                    "header": [
+                        {
+                            "key": ":status",
+                            "value": 404
+                        },
+                        {
+                            "key": "access-control-allow-credentials",
+                            "value": "true"
+                        },
+                        {
+                            "key": "age",
+                            "value": "0"
+                        },
+                        {
+                            "key": "cache-control",
+                            "value": "public, max-age=0, must-revalidate"
+                        },
+                        {
+                            "key": "content-type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "date",
+                            "value": "Sat, 22 Aug 2026 09:14:24 GMT"
+                        },
+                        {
+                            "key": "etag",
+                            "value": "W/\"47-7bjPTH5emSgGBzBQO/9JUHux+Vg\""
+                        },
+                        {
+                            "key": "server",
+                            "value": "Vercel"
+                        },
+                        {
+                            "key": "strict-transport-security",
+                            "value": "max-age=63072000; includeSubDomains; preload"
+                        },
+                        {
+                            "key": "vary",
+                            "value": "Origin"
+                        },
+                        {
+                            "key": "x-powered-by",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "x-vercel-cache",
+                            "value": "MISS"
+                        },
+                        {
+                            "key": "x-vercel-id",
+                            "value": "sin1::iad1::sg2qd-1787390063865-72c067b62175"
+                        },
+                        {
+                            "key": "content-length",
+                            "value": "71"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"success\": false,\n    \"message\": \"Route /api/coba-route-tidak-ada not found\"\n}"
+                }
+            ],
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 404\", function () {",
+                            "    pm.response.to.have.status(404);",
+                            "});",
+                            "",
+                            "pm.test(\"Response has correct success field\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.success).to.eql(false);",
+                            "});",
+                            "",
+                            "pm.test(\"Response message is correct\", function () {",
+                            "    const json = pm.response.json();",
+                            "    pm.expect(json.message).to.eql(\"Route /api/coba-route-tidak-ada not found\");",
+                            "});",
+                            "",
+                            "pm.test(\"Response time is reasonable (<3000ms)\", function () {",
+                            "    pm.expect(pm.response.responseTime).to.be.below(3000);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ]
+        }
+    ],
+    "variable": [
+        {
+            "key": "supabase_service_role_api_key_0501",
+            "secret": true
+        },
+        {
+            "key": "supabase_service_role_api_key_1b9j",
+            "secret": true
+        },
+        {
+            "key": "json_web_token_0q3t",
+            "secret": true
+        },
+        {
+            "key": "auth_secret_0t7q",
+            "secret": true
+        },
+        {
+            "key": "auth_secret_0k7m",
+            "secret": true
+        },
+        {
+            "key": "supabase_service_role_api_key_0t7q",
+            "secret": true
+        },
+        {
+            "key": "json_web_token_0k7m",
+            "secret": true
+        },
+        {
+            "key": "auth_secret_0qes",
+            "secret": true
+        },
+        {
+            "key": "supabase_service_role_api_key_0k7m",
+            "secret": true
+        },
+        {
+            "key": "auth_secret_0ye4",
+            "secret": true
+        },
+        {
+            "key": "auth_secret_017m",
+            "secret": true
+        }
+    ]
+}
